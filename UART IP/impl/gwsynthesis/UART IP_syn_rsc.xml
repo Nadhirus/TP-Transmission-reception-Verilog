@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="TopLevel" T_Register="68(0)" T_Lut="104(0)">
+    <SubModule name="your_instance_name"/>
+    <SubModule name="uart_top_inst" Lut="1" T_Register="68(0)" T_Lut="104(1)">
+        <SubModule name="uart_tx_inst" Register="30" Lut="52" T_Register="30(30)" T_Lut="52(52)"/>
+        <SubModule name="uart_rx_inst" Register="38" Lut="51" T_Register="38(38)" T_Lut="51(51)"/>
+    </SubModule>
+</Module>

@@ -1,5 +1,4 @@
-module uart_top(
-    input wire clk,              // System clock
+module TopLevel(
     input wire rst_n,            // Asynchronous reset
     input wire transmit,         // Signal to start transmission
     input wire [7:0] tx_data,    // Data to transmit
@@ -8,34 +7,20 @@ module uart_top(
     output wire rx_done          // Receive done flag
 );
 
-    // Internal signals
-    wire tx;
-    wire rx;
-    wire rts;
-    wire cts;
+    InternalCLK your_instance_name(
+        .oscout(oscout_o) //output oscout
+    );
 
     // UART TX Instance
-    uart_tx uart_tx_inst (
-        .clk(clk),
+    uart_top uart_top_inst (
+        .clk(oscout_o),
         .rst_n(rst_n),
         .transmit(transmit),
-        .data(tx_data),
-        .cts(cts),
-        .tx(tx),
-        .rts(rts)
+        .tx_data(tx_data),
+        .rx_data(rx_data),
+        .tx_done(tx_done),
+        .rx_done(rx_done)
     );
 
-    // UART RX Instance
-    uart_rx uart_rx_inst (
-        .clk(clk),
-        .rst_n(rst_n),
-        .rx(tx),         // Connect TX to RX (loopback for testing)
-        .data(rx_data),
-        .received(rx_done),
-        .rts(rts),
-        .cts(cts)
-    );
-
-    assign tx_done = !uart_tx_inst.rts;  // Transmit done when RTS is deasserted
 
 endmodule

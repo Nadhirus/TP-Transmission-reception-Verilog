@@ -2,7 +2,23 @@
  "Device" : "GW1NR-9C",
  "Files" : [
   {
+   "Path" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/gowin_osc/gowin_osc.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/TopLevel.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/uart_rx.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/uart_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/uart_tx.v",
    "Type" : "verilog"
   }
  ],

@@ -1,0 +1,46 @@
+[
+ {
+  "InstFile" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/TopLevel.v",
+  "InstLine" : 1,
+  "InstName" : "TopLevel",
+  "ModuleFile" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/TopLevel.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "TopLevel",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/TopLevel.v",
+    "InstLine" : 10,
+    "InstName" : "your_instance_name",
+    "ModuleFile" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/gowin_osc/gowin_osc.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "InternalCLK"
+   },
+   {
+    "InstFile" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/TopLevel.v",
+    "InstLine" : 15,
+    "InstName" : "uart_top_inst",
+    "ModuleFile" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/uart_top.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "uart_top",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/uart_top.v",
+      "InstLine" : 18,
+      "InstName" : "uart_tx_inst",
+      "ModuleFile" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/uart_tx.v",
+      "ModuleLine" : 1,
+      "ModuleName" : "uart_tx"
+     },
+     {
+      "InstFile" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/uart_top.v",
+      "InstLine" : 29,
+      "InstName" : "uart_rx_inst",
+      "ModuleFile" : "C:/Users/Nadhir/Desktop/TP Transmission reception Verilog/UART IP/src/uart_rx.v",
+      "ModuleLine" : 1,
+      "ModuleName" : "uart_rx"
+     }
+    ]
+   }
+  ]
+ }
+]
