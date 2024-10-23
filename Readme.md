@@ -3,67 +3,41 @@
 ## Table des Matières
 1. [Introduction](#introduction)
 2. [Objectifs](#objectifs)
-3. [Prérequis](#prérequis)
-4. [Matériel Utilisé](#matériel-utilisé)
-5. [Description du Projet](#description-du-projet)
-6. [Architecture du Système](#architecture-du-système)
-7. [Instructions de Compilation](#instructions-de-compilation)
-8. [Tests et Validation](#tests-et-validation)
-9. [Résultats](#résultats)
-10. [Conclusion](#conclusion)
-11. [Références](#références)
+3. [Matériel Utilisé](#matériel-utilisé)
+4. [Architecture du Système](#architecture-du-système)
+5. [Tests et Validation](#tests-et-validation)
+6. [Résultats](#résultats)
 
 ## Introduction
-Fournir une brève introduction au projet et son contexte.
+Ce projet est réalisé dans le cadre du module "Instrumentation et interfaçage des systèmes embarqués" de mon Master 2 à l'université Paris-Saclay.
 
 ## Objectifs
-Lister les objectifs principaux du TP.
-
-## Prérequis
-Décrire les connaissances et compétences nécessaires pour réaliser ce TP.
+L'objectif est d'implémenter la norme V24 de la communication UART en Verilog et de développer un bloc IP optimisé en taille, destiné à devenir un périphérique MMIO pouvant être intégré dans un SoC.
 
 ## Matériel Utilisé
-Énumérer le matériel et les logiciels utilisés dans ce projet.
-
-## Description du Projet
-Donner une description détaillée du projet, y compris les fonctionnalités et les spécifications.
+Actuellement, j'utilise une carte de développement SiSpeed Tang Nano 9K basée sur un FPGA Gowin GW1NR-9LV C5/6. Cependant, le but est de rendre le bloc matériel agnostique et synthétisable sur n'importe quel FPGA.
 
 ## Architecture du Système
-Expliquer l'architecture du système, avec des diagrammes si nécessaire.
 
-## Instructions de Compilation
-Fournir des instructions étape par étape pour compiler le code Verilog.
+### Module UART TX (uart_tx) :
+- Implémente la transmission UART.
+- Utilise une FSM (Machine à États Finis) pour gérer les transitions entre les états : repos, bit de démarrage, bits de données, bit d'arrêt, terminé.
+- Le signal RTS est activé lorsque l'émetteur est prêt à envoyer, et désactivé à la fin de la transmission.
+- L'entrée CTS garantit que l'émetteur n'envoie des données que lorsque le récepteur est prêt.
 
-## Tests et Validation
-Décrire les tests effectués pour valider le fonctionnement du système.
-
-## Résultats
-Présenter les résultats obtenus, avec des graphiques ou des tableaux si nécessaire.
-
-## Conclusion
-Fournir une conclusion sur les travaux réalisés et les apprentissages.
-
-## Références
-
-Lister les références et ressources utilisées pour ce projet.
-
-
-# Module UART TX (uart_tx) :
-
-- Implémente le processus de transmission UART.
-- Utilise une FSM (Machine à États Finis) pour gérer les transitions d'état (repos, bit de démarrage, bits de données, bit d'arrêt, terminé).
-- RTS est activé lorsque l'émetteur est prêt à envoyer, et désactivé à la fin de la transmission.
-- L'entrée CTS garantit que l'émetteur n'envoie les données que lorsque le récepteur est prêt.
-
-# Module UART RX (uart_rx) :
-
-- Implémente le processus de réception UART.
+### Module UART RX (uart_rx) :
+- Implémente la réception UART.
 - Utilise une FSM pour gérer la détection du bit de démarrage, la réception des bits de données, le bit d'arrêt, et le stockage des données reçues.
-- CTS est activé lorsque le récepteur est prêt à accepter les données, et désactivé à la fin de la réception.
+- Le signal CTS est activé lorsque le récepteur est prêt à accepter les données, et désactivé à la fin de la réception.
 - RTS est une entrée provenant de l'émetteur, et le récepteur échantillonne les bits entrants.
 
-# Module Principal (uart_top) :
-
+### Module Principal (uart_top) :
 - Combine les modules de transmission et de réception.
 - Connecte le signal `tx` de l'émetteur à l'entrée `rx` du récepteur, simulant une boucle de retour (loopback).
-- Le signal `tx_done` est activé lorsque la transmission est terminée, et le signal `rx_done` est activé lorsque la réception est terminée.
+- Le signal `tx_done` est activé à la fin de la transmission, et `rx_done` est activé à la fin de la réception.
+
+## Tests et Validation
+Pas encore de tests effectués.
+
+## Résultats
+Aucun résultat disponible pour l'instant.
